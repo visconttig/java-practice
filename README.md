@@ -20,7 +20,7 @@ Because Java is fun (sometimes). And practice makes perfect. Plus, who doesn’t
 
 1. Clone this repo:
    ```bash
-   git clone https://github.com/your-username/random-java-playground.git
+   git clone https://github.com/visconttig/java-practice.git
    ```
 2. Open it in your favorite IDE (unless it's Notepad... please don't)
 3. Compile and run whatever madness you find inside:
