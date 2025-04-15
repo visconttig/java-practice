@@ -31,7 +31,7 @@ A fórmula para calcular a $área$ de um triângulo a partir das medidas de seus
 
 $$ \textit{area} = \sqrt{p(p-a)(p-b)(p-c)} $$
 
-> onde $ p = \frac{a + b + c}{2} $
+> onde $p = \frac{a + b + c}{2}$
 
 ---
 
@@ -58,6 +58,12 @@ $$ \textit{área} = \sqrt{p(p-a)(p-b)(p-c)} $$
 
 ### Example
 ![Exercise Example](./resources/example.png)
+
+
+---
+
+---
+
 
 
 ### UML Diagram
