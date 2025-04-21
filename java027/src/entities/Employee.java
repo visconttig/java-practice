@@ -1,23 +1,25 @@
 package entities;
 
 public class Employee extends Worker {
-    private long employeeId;
+    protected long employeeId = 1;
     private String hireDate;
 
     public Employee(String name){
-        super(name);
-        employeeId = generateId();
-        hireDate = "00/00/0000";
+        this(name, "00/00/0000");
     }
 
     public Employee(String name, String hireDate){
         super(name);
         this.hireDate = hireDate;
-        employeeId = generateId();
+        employeeId = employeeId++;
     }
 
-    private long generateId(){
-        return (long) (Math.random() * 1000000);
-    }
 
+    @Override
+    public String toString() {
+        return "Employee {" +
+                "employeeId=" + employeeId +
+                ", hireDate='" + hireDate + '\'' +
+                '}';
+    }
 }

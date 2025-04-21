@@ -23,9 +23,10 @@ public class HourlyEmployee extends Employee {
 
     public double getDoublePay(){
         // Again, this is an exercise about inheritance, not arithmetics
-        System.out.printf("%s collected double pay.", getName());
+        System.out.printf("%s collected double pay.%n", getName());
         return 500.00;
     }
+
 
 }
 

@@ -26,4 +26,13 @@ public class SalariedEmployee extends Employee {
         isRetired = true;
         System.out.printf("Salaried employee %s retired.%n", getName());
     }
+
+    @Override
+    public String toString() {
+        return "SalariedEmployee{" +
+                "annualSalary=" + annualSalary +
+                ", isRetired=" + isRetired +
+                '}';
+    }
+
 }

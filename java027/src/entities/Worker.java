@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Calendar;
+
 public class Worker {
     private String name;
     private String birthDate;
@@ -7,7 +9,7 @@ public class Worker {
 
 
     public Worker(String name){
-        this(name, "00/00/0000", "00/00/0000");
+        this(name, "03/04/1981", "00/00/0000");
     }
 
     public Worker(String name, String birthDate, String endDate){
@@ -20,9 +22,14 @@ public class Worker {
         return name;
     }
 
-    public String getAge(){
-        // This is an exercise about inheritance, not dates manipulation ;)
-        return "Age: 102 years old.";
+    public void getAge(){
+        // example 11/22/1234
+        int birthYear = Integer.parseInt(birthDate.substring(6));
+        System.out.printf("Birth year: %d%n", birthYear);
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        System.out.printf("Current year: %d%n", currentYear);
+        System.out.print(String.format("%s is %d years old.",
+                getName(), currentYear - birthYear));
     }
 
     public double collectPay(){
@@ -34,6 +41,12 @@ public class Worker {
         System.out.printf("Worker %s terminated.%n", getName());
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Worker {" +
+                "name='" + name + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                '}';
+    }
 }
