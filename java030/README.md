@@ -56,20 +56,28 @@ class Printer {
 @enduml
 ```
 
-> 📄 Render it in Markdown
->> If you're viewing this on GitHub, you can render it using a plugin like:
->>> - **PlantUML for VS Code**
->>> - **LiveUML**
->>> - **Markdown Preview Enhanced (for Atom or VS Code)**
-Or use [PlantUML Online Server](https://www.plantuml.com/plantuml/) to preview the diagram.
+> If you're viewing this on GitHub, you can render it using a plugin like:
+>> - **PlantUML for VS Code**
+>> - **LiveUML**
+>> - **Markdown Preview Enhanced (for Atom or VS Code)**
+>> - Or use [PlantUML Online Server](https://www.plantuml.com/plantuml/) to preview the diagram. 
+>> - In **Intellij**, usually it is disabled by default, you can enable it [using this steps](https://stackoverflow.com/questions/54413962/cant-render-component-diagram-with-plantuml-in-intellij).
 
 
 ### 2. 🔧 Create a New Class: `ColorPrinter`
 
-- Inherit from the existing `Printer` class.
-- Add a new field: `int colorTonerLevel`.
-- Override the `addToner(int tonerLevel)` method to handle both black & white and color toner:
-  - If adding toner to either causes the level to exceed 100, cap it at 100.
+You’ll use inheritance to reuse the base functionality and method overloading to support color-specific features.
+
+- Extend the existing `Printer` class.
+- Add a new private field: `int colorTonerLevel`.
+- Implement a **new overloaded method**:
+
+```java
+public void addToner(int blackToner, int colorToner);
+```
+
+- In this method:
+  - Cap both toner levels at 100.
   - Print a message for both toner levels after adding.
 
 ### 2. 🧪 Add More Functionality
@@ -124,3 +132,6 @@ By completing this assignment, you will:
 - Understand how to extend a class in Java.
 - Practice method overriding and constructor chaining.
 - Strengthen your grasp on encapsulation and input handling.
+
+
+
