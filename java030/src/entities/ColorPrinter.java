@@ -26,13 +26,19 @@ public class ColorPrinter extends Printer {
         System.out.printf("Color Toner Level: %d.%n", getColorTonerLevel());
     }
 
-    public void printColorPages(int numberOfPages){
-        var sheets = super.printPages(numberOfPages);
-        if(sheets %2 == 0){
-            colorTonerLevel -= sheets;
-        } else {
-            colorTonerLevel -= (sheets + 1);
-        }
+
+    protected void decreaseColorTonerLevel(int sheetsPrinted){
+        System.out.println("Decrease toner level in ColorPrinter.");
+        colorTonerLevel -= calculateSheets(sheetsPrinted);
+        System.out.printf("\t\tNew color toner level: %d.%n", getColorTonerLevel());
+    }
+
+    public int printColorPages(int numberOfPages){
+        System.out.println("Printing color pages...");
+        decreaseColorTonerLevel(numberOfPages);
+        setSheetsPrinted(calculateSheets(numberOfPages));
+        System.out.printf("Sheets printed: %d.%n", getSheetsPrinted());
+        return calculateSheets(numberOfPages, getIsDoubleSide());
     }
 
 }
