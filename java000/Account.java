@@ -6,7 +6,8 @@ public class Account {
     if(amount > 0){
       this.savingsBalance += amount;
     } else {
-      System.out.println("The amount to deposit should be greater than zero.");
+      System.out.println("The amount to deposit should be " +
+                                 "greater than zero.");
     }
   }
   
@@ -14,7 +15,8 @@ public class Account {
     if(amount >= this.savingsBalance){
       this.savingsBalance -= amount;
     } else {
-      System.out.println("The amount available is not enough to withdraw that much.");
+      System.out.println("The amount available is not enough " +
+                                 "to withdraw that much.");
     }
   }
 

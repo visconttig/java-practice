@@ -1,0 +1,10 @@
+@startuml
+class Account {
+~ String owner
+~ double savingsBalance
++ void deposit(double)
++ void withdraw(double)
+}
+
+
+@enduml
