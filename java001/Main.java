@@ -11,7 +11,7 @@ public class Main {
         System.out.print("Enter the second number: ");
         secondNum = sc.nextInt();
         int sum = firstNum + secondNum;
-        System.out.printf("SOMA: %d.", sum); // The exercise is in Portugues
+        System.out.printf("SUM: %d.", sum);
 
     }
 }
