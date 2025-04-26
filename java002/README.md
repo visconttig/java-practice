@@ -6,7 +6,10 @@ This is a simple Java program that calculates the $\textit{area}$ of a circle ba
 
 - Accepts user input for the $\textit{radius}$ of a $\textit{circle}$.
 - Calculates the $\textit{area}$ using the formula:
-$$A = \pi \times r^{2}$$
+
+    $$A = \pi \times r^{2}$$
+
+
 - Prints the result formatted to **4 decimal places**.
 
 ## How to Run
