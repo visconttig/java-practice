@@ -18,7 +18,7 @@ public class Main {
         hourlyRate = sc.nextDouble();
 
         salary = workedHours * hourlyRate;
-        System.out.printf("NUMBER = %d%nSALARY = %.2f%n", employeeId, salary);
+        System.out.printf("EMPLOYEE_ID = %d%nSALARY = %.2f%n", employeeId, salary);
 
     }
 }
