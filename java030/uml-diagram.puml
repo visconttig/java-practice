@@ -1,0 +1,38 @@
+@startuml
+class entities.ColorPrinter {
+- int colorTonerLevel
++ <<Create>> ColorPrinter()
++ <<Create>> ColorPrinter(int,boolean,int)
++ int getColorTonerLevel()
++ void addToner(int,int)
+# void decreaseColorTonerLevel(int)
++ int printColorPages(int)
+}
+
+
+class Main {
++ {static} void main(String[])
+}
+
+class entities.Printer {
+- int tonerLevel
+- int sheetsPrinted
+- boolean isDoubleSide
++ <<Create>> Printer()
++ <<Create>> Printer(int,boolean)
++ int getTonerLevel()
++ int getSheetsPrinted()
++ boolean getIsDoubleSide()
+# void setSheetsPrinted(int)
++ int addToner(int)
+# void decreaseTonerLevel(int)
+# int calculateSheets(int)
+# int calculateSheets(int,boolean)
++ int printPages(int)
+}
+
+
+
+
+entities.Printer <|-- entities.ColorPrinter
+@enduml

@@ -6,10 +6,15 @@ public class Printer {
     private int sheetsPrinted;
     private boolean isDoubleSide;
 
+    public Printer(){
+        this(100, false);
+        this.sheetsPrinted = 0;
+    }
+
     public Printer(int tonerLevel, boolean isDoubleSide){
         this.tonerLevel = tonerLevel;
-        sheetsPrinted = 0;
         this.isDoubleSide = isDoubleSide;
+        this.sheetsPrinted = 0;
     }
 
     public int getTonerLevel(){
@@ -30,23 +35,24 @@ public class Printer {
 
     public int addToner(int tonerLevel){
         System.out.println("Adding toner...");
-        if(tonerLevel >= 100){
+        if((this.tonerLevel + tonerLevel) >= 100){
             this.tonerLevel = 100;
             System.out.printf("\t\tNew toner level: %d.%n", getTonerLevel());
             return -1;
         } else if(tonerLevel < 0){
-            throw new Error("Toner amount must be a positive number.");
+            System.out.println("Toner amount must be a positive number.");
+            return -2;
         }
         if(tonerLevel != 0){
-            this.tonerLevel = tonerLevel;
+            this.tonerLevel += tonerLevel;
         }
-        System.out.printf("Toner level: %d.%n", getTonerLevel());
+        System.out.printf("Black toner level: %d.%n\t\t***\t\t***%n", getTonerLevel());
         return this.tonerLevel;
     }
 
     protected void decreaseTonerLevel(int sheetsPrinted){
         this.tonerLevel -= calculateSheets(sheetsPrinted);
-        System.out.printf("\t\tNew b&w toner level: %d.%n", getTonerLevel());
+        System.out.printf("\t\tNew b&w toner level: %d.%n\t\t***\t\t***%n", getTonerLevel());
     }
 
     protected int calculateSheets(int pages){
@@ -63,11 +69,19 @@ public class Printer {
 
     public int printPages(int pages){
         int sheets = calculateSheets(pages, getIsDoubleSide());
-        setSheetsPrinted(sheets);
-        System.out.println("Printing pages...");
-        System.out.printf("Sheets printed: %d.%n", getSheetsPrinted());
-        decreaseTonerLevel(pages);
-        return sheets;
+        if((getTonerLevel() - sheets) >= 0){
+            System.out.println("Printing pages...");
+            setSheetsPrinted(sheets);
+            System.out.printf("Sheets printed: %d.%n", getSheetsPrinted());
+            decreaseTonerLevel(pages);
+            return sheets;
+        } else {
+            System.out.printf("Not enough toner for printing that number of pages.%n" +
+                                      "Max number of pages to print: %d.%n\t\t***\t\t***%n",
+                              (getTonerLevel() * 2));
+        }
+
+        return -1;
     }
 
 
