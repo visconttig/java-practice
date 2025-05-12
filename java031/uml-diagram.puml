@@ -1,0 +1,59 @@
+@startuml
+class main.Car {
+- String description
++ <<Create>> Car(String)
++ void startEngine()
++ void drive()
+# void runEngine(int)
++ String getDescription()
++ void setDescription(String)
++ void printMessage(String)
+}
+
+
+class main.ElectricCar {
+- double avgKmPerCharge
+- int batterySize
++ <<Create>> ElectricCar()
++ <<Create>> ElectricCar(String,double,int)
++ void startEngine()
++ void drive()
+# void runEngine(int)
+}
+
+
+class main.HybridCar {
+- double avgKmPerLitre
+- int batterySize
+- int cylinders
++ <<Create>> HybridCar()
++ <<Create>> HybridCar(String,double,int,int)
++ void startEngine()
++ void drive()
+# void runEngine(int)
+}
+
+
+class main.Main {
++ {static} void main(String[])
++ {static} void runCar(Car)
+}
+
+class main.GasPoweredCar {
+- double avgKmPerLitre
+- int cylinders
++ <<Create>> GasPoweredCar()
++ <<Create>> GasPoweredCar(String)
++ <<Create>> GasPoweredCar(String,double,int)
++ void startEngine()
++ void drive()
+# void runEngine(int)
+}
+
+
+
+
+main.Car <|-- main.ElectricCar
+main.Car <|-- main.HybridCar
+main.Car <|-- main.GasPoweredCar
+@enduml

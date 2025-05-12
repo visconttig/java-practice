@@ -27,7 +27,9 @@ public class GasPoweredCar extends Car {
 
    @Override
    public void drive(){
-        printMessage("Gas powered car driving around...\n");
+        printMessage("Gas car ==> Driving around...\n");
+        printMessage(String.format("Type of car: %s.%n",
+                                   this.getClass().getSimpleName()));
    }
 
    @Override

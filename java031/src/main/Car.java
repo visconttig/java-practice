@@ -3,20 +3,19 @@ package main;
 public class Car {
     private String description;
 
-    public Car(){
-        this("No description.");
-    }
 
     public Car(String description){
         this.description = description;
     }
 
     public void startEngine(){
-       printMessage("Starting engine...");
+       printMessage("Starting engine...\n");
     }
 
     public void drive(){
-        printMessage("Driving around...\n");
+        printMessage("Car ==> Driving around...\n");
+        printMessage(String.format("Type of car: %s.%n",
+                                   this.getClass().getSimpleName()));
     }
 
     protected void runEngine(int speed){

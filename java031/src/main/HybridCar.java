@@ -29,7 +29,9 @@ public class HybridCar extends Car {
 
     @Override
     public void drive(){
-        printMessage("Hybrid car driving around...\n");
+        printMessage("Hybrid car ==> Driving around...\n");
+        printMessage(String.format("Type of car: %s.%n",
+                             this.getClass().getSimpleName()));
     }
 
     @Override

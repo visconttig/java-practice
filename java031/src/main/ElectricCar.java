@@ -23,7 +23,9 @@ public class ElectricCar extends Car {
 
    @Override
    public void drive(){
-        printMessage("Electric car driving around...\n");
+        printMessage("Electric car ==> Driving around...\n");
+        printMessage(String.format("Type of car: %s.%n",
+                                   this.getClass().getSimpleName()));
    }
 
    @Override
